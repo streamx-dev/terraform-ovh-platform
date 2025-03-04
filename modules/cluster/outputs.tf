@@ -25,4 +25,24 @@ output "kubeconfig" {
   sensitive   = true
 }
 
+output "host" {
+  description = "K8s cluster kubeconfig"
+  value       = ovh_cloud_project_kube.cluster.kubeconfig_attributes[0].host
+  sensitive   = true
+}
+output "client_certificate" {
+  description = "K8s cluster kubeconfig"
+  value       = base64decode(ovh_cloud_project_kube.cluster.kubeconfig_attributes[0].client_certificate)
+  sensitive   = true
+}
+output "client_key" {
+  description = "K8s cluster kubeconfig"
+  value       = base64decode(ovh_cloud_project_kube.cluster.kubeconfig_attributes[0].client_key)
+  sensitive   = true
+}
+output "cluster_ca_certificate" {
+  description = "K8s cluster kubeconfig"
+  value       = base64decode(ovh_cloud_project_kube.cluster.kubeconfig_attributes[0].cluster_ca_certificate)
+  sensitive   = true
+}
 

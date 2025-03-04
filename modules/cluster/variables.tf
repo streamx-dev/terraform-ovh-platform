@@ -31,11 +31,13 @@ variable "region" {
 }
 
 variable "network_id" {
+  default = null
   description = "Network id to attach cluster"
   type        = string
 }
 
 variable "nodes_subnet_id" {
+  default = null
   description = "Nodes subnet ID"
   type        = string
 }
