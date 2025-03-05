@@ -41,3 +41,8 @@ variable "nodes_subnet_id" {
   description = "Nodes subnet ID"
   type        = string
 }
+
+variable "kubeconfig_path" {
+  default     = null
+  description = "Script creates kubeconfig file with provided path. No file is created when null is provided."
+}

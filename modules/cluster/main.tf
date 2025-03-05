@@ -44,7 +44,8 @@ resource "ovh_cloud_project_kube_nodepool" "node_pool" {
 }
 
 resource "local_sensitive_file" "kubeconfig" {
-  filename = "${path.module}/env/kubeconfig"
+  count    = var.kubeconfig_path == null ? 0 : 1
+  filename = var.kubeconfig_path
   content  = ovh_cloud_project_kube.cluster.kubeconfig
 }
 
