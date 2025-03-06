@@ -34,13 +34,13 @@ resource "ovh_cloud_project_kube" "cluster" {
 resource "ovh_cloud_project_kube_nodepool" "node_pool" {
   service_name                                 = var.service_name
   kube_id                                      = ovh_cloud_project_kube.cluster.id
-  name                                         = "streamx"
-  flavor_name                                  = "d2-8"
-  desired_nodes                                = 5
-  max_nodes                                    = 10
-  min_nodes                                    = 5
-  autoscale                                    = true
-  autoscaling_scale_down_unneeded_time_seconds = 1200
+  name                                         = var.node_pool_name
+  flavor_name                                  = var.node_pool_flavor_name
+  desired_nodes                                = var.node_pool_desired_nodes
+  max_nodes                                    = var.node_pool_max_nodes
+  min_nodes                                    = var.node_pool_min_nodes
+  autoscale                                    = var.node_pool_autoscale
+  autoscaling_scale_down_unneeded_time_seconds = var.node_pool_autoscaling_scale_down_unneeded_time_seconds
 }
 
 resource "local_sensitive_file" "kubeconfig" {

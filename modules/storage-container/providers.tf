@@ -9,6 +9,6 @@ provider "aws" {
   # some ovh regions are unknown to AWS hence skipping is needed.
   skip_region_validation = true
   endpoints {
-    s3 = var.s3_endpoint
+    s3 = local.s3_endpoint
   }
 }

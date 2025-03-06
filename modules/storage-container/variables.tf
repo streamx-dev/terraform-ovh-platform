@@ -14,27 +14,35 @@
 #
 
 variable "ovh_public_cloud_project_id" {
+  default = "6ba37b7f425745c2970c0ca77361900c"
   description = "OVH Public cloud project id"
   type = string
 }
 
 variable "region" {
+  default = "waw"
   description = "S3 bucket location from [list](https://help.ovhcloud.com/csm/en-ie-public-cloud-storage-s3-location?id=kb_article_view&sysparm_article=KB0047393)"
   type = string
 }
 
 variable "s3_endpoint" {
   default = null
-  description = "If not set endpoint will be build from region. OVH S3 endpoint from [list](https://help.ovhcloud.com/csm/en-ie-public-cloud-storage-s3-location?id=kb_article_view&sysparm_article=KB0047393)"
+  description = "OVH S3 endpoint from  from [list](https://help.ovhcloud.com/csm/en-ie-public-cloud-storage-s3-location?id=kb_article_view&sysparm_article=KB0047393)"
   type = string
 }
 
 variable "bucket_name" {
+  default = "streamxdsf"
   description = "S3 bucket name"
   type = string
 }
 
-variable "tf_backends" {
-  description = "Terraform backends defined as map where key is state backend key and value is a path where backend configuration is created."
-  type        = map(string)
+variable "bucket_versioning" {
+  default = "Disabled"
+  description = "Set if the bucket should be versioned. Do not disable versioning on already created bucket. https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning#versioning_configuration"
+  type = string
+  validation {
+    condition     = contains(["Suspended", "Enabled", "Disabled"], var.bucket_versioning)
+    error_message = "The bucket_versioning must be either Suspended, Enabled or Disabled."
+  }
 }

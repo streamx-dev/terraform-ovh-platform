@@ -19,14 +19,14 @@ variable "service_name" {
 }
 
 variable "cloud_region" {
-  default     = "WAW1"
+  default     = "GRA11"
   description = "A valid OVHcloud public cloud region ID in which the kubernetes resources will be available."
   type        = string
 }
 
 variable "network_name" {
   default     = "streamx-network"
-  description = "name of network"
+  description = "Name of network"
   type        = string
 }
 
@@ -56,19 +56,19 @@ variable "subnet_network" {
 
 variable "gateway_name" {
   default     = "streamx-gateway"
-  description = "name of gateway"
+  description = "Name of gateway"
   type        = string
 }
 
 variable "gateway_model" {
   default     = "s"
-  description = "gateway model"
+  description = "Gateway model"
   type        = string
 }
 
 variable "floating_ip_pool" {
   default     = "Ext-Net"
-  description = "pool if IPs"
+  description = "Pool of IPs"
   type        = string
 }
 

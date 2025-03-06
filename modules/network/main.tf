@@ -18,6 +18,7 @@
 ########################################################################################
 resource "ovh_cloud_project_user" "network_operator_user" {
   service_name = var.service_name
+  description  = "User with role to operate on network(allocate floating IP)"
   role_name    = "network_operator"
 }
 
