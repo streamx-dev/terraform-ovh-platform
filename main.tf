@@ -13,16 +13,15 @@
 # limitations under the License.
 #
 
-terraform {
-  required_version = ">= 1.8.1"
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.89.0"
-    }
-    ovh = {
-      source  = "ovh/ovh"
-      version = "~> 2.0.0"
-    }
-  }
+module "cluster" {
+  source = "./modules/cluster"
+
+  service_name    = var.service_name
+  cluster_name    = var.cluster_name
+  network_id      = var.public_ip_address == null || var.public_ip_address == "" ? null :
+    var.network_id
+  nodes_subnet_id = var.public_ip_address == null || var.public_ip_address == "" ? null :
+    var.nodes_subnet_id
+  region          = var.region
+  kubeconfig_path = var.kubeconfig_path
 }
