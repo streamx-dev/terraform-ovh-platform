@@ -20,9 +20,12 @@ resource "ovh_cloud_project_kube" "cluster" {
 
   private_network_id = var.network_id
   nodes_subnet_id = var.nodes_subnet_id
-  private_network_configuration {
-    default_vrack_gateway              = ""
-    private_network_routing_as_default = false
+  dynamic "private_network_configuration" {
+    for_each = var.network_id != null && var.network_id != ""? [1] : []
+    content {
+      default_vrack_gateway              = ""
+      private_network_routing_as_default = false
+    }
   }
   timeouts {
     create = "1h"

@@ -18,10 +18,8 @@ module "cluster" {
 
   service_name    = var.service_name
   cluster_name    = var.cluster_name
-  network_id      = var.public_ip_address == null || var.public_ip_address == "" ? null :
-    var.network_id
-  nodes_subnet_id = var.public_ip_address == null || var.public_ip_address == "" ? null :
-    var.nodes_subnet_id
+  network_id      = var.public_ip_address == null || var.public_ip_address == "" ? null : var.network_id
+  nodes_subnet_id = var.public_ip_address == null || var.public_ip_address == "" ? null : var.nodes_subnet_id
   region          = var.region
   kubeconfig_path = var.kubeconfig_path
 }
