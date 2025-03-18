@@ -19,13 +19,8 @@ variable "ovh_public_cloud_project_id" {
 }
 
 variable "region" {
+  default = "GRA"
   description = "S3 bucket location from [list](https://help.ovhcloud.com/csm/en-ie-public-cloud-storage-s3-location?id=kb_article_view&sysparm_article=KB0047393)"
-  type = string
-}
-
-variable "s3_endpoint" {
-  default = null
-  description = "If not set endpoint will be build from region. OVH S3 endpoint from [list](https://help.ovhcloud.com/csm/en-ie-public-cloud-storage-s3-location?id=kb_article_view&sysparm_article=KB0047393)"
   type = string
 }
 

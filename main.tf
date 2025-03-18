@@ -16,10 +16,20 @@
 module "cluster" {
   source = "./modules/cluster"
 
-  service_name    = var.service_name
-  cluster_name    = var.cluster_name
-  network_id      = var.public_ip_address == null || var.public_ip_address == "" ? null : var.network_id
-  nodes_subnet_id = var.public_ip_address == null || var.public_ip_address == "" ? null : var.nodes_subnet_id
-  region          = var.region
+  service_name = var.service_name
+  cluster_name = var.cluster_name
+  region       = var.region
+
+  network_id      = var.network_id
+  nodes_subnet_id = var.nodes_subnet_id
+
+  node_pool_name                                         = var.node_pool_name
+  node_pool_flavor_name                                  = var.node_pool_flavor_name
+  node_pool_desired_nodes                                = var.node_pool_desired_nodes
+  node_pool_max_nodes                                    = var.node_pool_max_nodes
+  node_pool_min_nodes                                    = var.node_pool_min_nodes
+  node_pool_autoscale                                    = var.node_pool_autoscale
+  node_pool_autoscaling_scale_down_unneeded_time_seconds = var.node_pool_autoscaling_scale_down_unneeded_time_seconds
+
   kubeconfig_path = var.kubeconfig_path
 }
