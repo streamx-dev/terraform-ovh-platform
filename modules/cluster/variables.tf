@@ -19,7 +19,6 @@ variable "ovh_public_cloud_project_id" {
 }
 
 variable "ovh_public_cloud_region" {
-  default     = "GRA11"
   description = "Region of cloud deployment"
   type        = string
 }

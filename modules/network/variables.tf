@@ -6,7 +6,6 @@ variable "ovh_public_cloud_project_id" {
 }
 
 variable "ovh_public_cloud_region" {
-  default     = "GRA11"
   description = "A valid OVHcloud public cloud region ID in which the kubernetes resources will be available."
   type        = string
 }

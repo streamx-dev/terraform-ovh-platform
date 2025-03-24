@@ -1,6 +1,5 @@
-
 locals {
-  s3_endpoint = var.s3_endpoint == null || var.s3_endpoint == "" ? "https://s3.${lower(var.region)}.io.cloud.ovh.net" : var.s3_endpoint
+  s3_endpoint = "https://s3.${lower(var.region)}.io.cloud.ovh.net"
 }
 
 ########################################################################################

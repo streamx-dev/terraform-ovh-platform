@@ -14,13 +14,11 @@
 #
 
 variable "ovh_public_cloud_project_id" {
-  default     = "6ba37b7f425745c2970c0ca77361900c"
   description = "OVH Public cloud project id"
   type        = string
 }
 
 variable "region" {
-  default     = "GRA"
   description = "S3 bucket location from [list](https://help.ovhcloud.com/csm/en-ie-public-cloud-storage-s3-location?id=kb_article_view&sysparm_article=KB0047393)"
   type        = string
 }
