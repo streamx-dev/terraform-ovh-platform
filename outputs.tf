@@ -48,3 +48,8 @@ output "cluster_ca_certificate" {
   value       = module.cluster.cluster_ca_certificate
   sensitive   = true
 }
+
+output "cluster_id" {
+  description = "K8s cluster id"
+  value       = module.cluster.cluster_id
+}

@@ -14,14 +14,14 @@
 #
 
 resource "ovh_cloud_project_kube" "cluster" {
-  service_name = var.service_name
+  service_name = var.ovh_public_cloud_project_id
   name         = var.cluster_name
-  region       = var.region
+  region       = var.ovh_public_cloud_region
 
   private_network_id = var.network_id
-  nodes_subnet_id = var.nodes_subnet_id
+  nodes_subnet_id    = var.nodes_subnet_id
   dynamic "private_network_configuration" {
-    for_each = var.network_id != null && var.network_id != ""? [1] : []
+    for_each = var.network_id != null && var.network_id != "" ? [1] : []
     content {
       default_vrack_gateway              = ""
       private_network_routing_as_default = false
@@ -35,7 +35,7 @@ resource "ovh_cloud_project_kube" "cluster" {
 }
 
 resource "ovh_cloud_project_kube_nodepool" "node_pool" {
-  service_name                                 = var.service_name
+  service_name                                 = var.ovh_public_cloud_project_id
   kube_id                                      = ovh_cloud_project_kube.cluster.id
   name                                         = var.node_pool_name
   flavor_name                                  = var.node_pool_flavor_name
