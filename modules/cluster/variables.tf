@@ -13,20 +13,20 @@
 # limitations under the License.
 #
 
-variable "service_name" {
+variable "ovh_public_cloud_project_id" {
   description = "The id of the public OVH cloud project"
+  type        = string
+}
+
+variable "ovh_public_cloud_region" {
+  default     = "GRA11"
+  description = "Region of cloud deployment"
   type        = string
 }
 
 variable "cluster_name" {
   default     = "streamx"
   description = "The name of the kubernetes cluster."
-  type        = string
-}
-
-variable "region" {
-  default     = "GRA11"
-  description = "A valid OVHcloud public cloud region ID in which the kubernetes cluster will be available."
   type        = string
 }
 
@@ -51,43 +51,43 @@ variable "nodes_subnet_id" {
 ########################################################################################
 
 variable "node_pool_name" {
-  default = "streamx"
+  default     = "streamx"
   description = "The name of the node_pool. Warning: _ char is not allowed! Changing this value recreates the resource."
   type        = string
 }
 variable "node_pool_flavor_name" {
-  default = "d2-8"
+  default     = "d2-8"
   description = "A valid OVHcloud public cloud flavor ID in which the nodes will be started. Ex: b2-7. You can find the list of flavor IDs: https://www.ovhcloud.com/fr/public-cloud/prices/."
   type        = string
 }
 variable "node_pool_desired_nodes" {
-  default = 5
+  default     = 5
   description = "Number of nodes to start."
-  type = number
+  type        = number
 }
 
 variable "node_pool_max_nodes" {
-  default = 10
+  default     = 10
   description = "Maximum number of nodes allowed in the pool. Setting desired_nodes over this value will raise an error."
-  type = number
+  type        = number
 }
 
 variable "node_pool_min_nodes" {
-  default = 5
+  default     = 5
   description = "Minimum number of nodes allowed in the pool. Setting desired_nodes under this value will raise an error."
-  type = number
+  type        = number
 }
 
 variable "node_pool_autoscale" {
-  default = true
+  default     = true
   description = "Enable auto-scaling for the pool."
-  type = bool
+  type        = bool
 }
 
 variable "node_pool_autoscaling_scale_down_unneeded_time_seconds" {
-  default = 1200
+  default     = 1200
   description = "ScaleDownUnneededTimeSeconds autoscaling parameter How long a node should be unneeded before it is eligible for scale down"
-  type = number
+  type        = number
 }
 
 ########################################################################################

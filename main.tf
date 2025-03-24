@@ -16,10 +16,17 @@
 module "cluster" {
   source = "./modules/cluster"
 
-  service_name    = var.service_name
-  cluster_name    = var.cluster_name
-  network_id      = var.public_ip_address == null || var.public_ip_address == "" ? null : var.network_id
-  nodes_subnet_id = var.public_ip_address == null || var.public_ip_address == "" ? null : var.nodes_subnet_id
-  region          = var.region
-  kubeconfig_path = var.kubeconfig_path
+  ovh_public_cloud_project_id                            = var.ovh_public_cloud_project_id
+  ovh_public_cloud_region                                = var.ovh_public_cloud_region
+  cluster_name                                           = var.cluster_name
+  node_pool_name                                         = var.node_pool_name
+  node_pool_flavor_name                                  = var.node_pool_flavor_name
+  node_pool_desired_nodes                                = var.node_pool_desired_nodes
+  node_pool_max_nodes                                    = var.node_pool_max_nodes
+  node_pool_min_nodes                                    = var.node_pool_min_nodes
+  node_pool_autoscale                                    = var.node_pool_autoscale
+  node_pool_autoscaling_scale_down_unneeded_time_seconds = var.node_pool_autoscaling_scale_down_unneeded_time_seconds
+  network_id                                             = var.public_static_ip_address == null || var.public_static_ip_address == "" ? null : var.network_id
+  nodes_subnet_id                                        = var.public_static_ip_address == null || var.public_static_ip_address == "" ? null : var.nodes_subnet_id
+  kubeconfig_path                                        = var.kubeconfig_path
 }
