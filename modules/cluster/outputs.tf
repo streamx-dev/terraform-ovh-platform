@@ -13,7 +13,6 @@
 # limitations under the License.
 #
 
-
 output "kubeconfig_path" {
   description = "K8s cluster kubeconfig file path"
   value       = abspath(local_sensitive_file.kubeconfig[0].filename)
