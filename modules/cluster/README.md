@@ -8,17 +8,22 @@
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_local"></a> [local](#provider\_local) | n/a |
+| <a name="provider_ovh"></a> [ovh](#provider\_ovh) | ~> 2.0.0 |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_cluster"></a> [cluster](#module\_cluster) | ./modules/cluster | n/a |
+No modules.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [local_sensitive_file.kubeconfig](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/sensitive_file) | resource |
+| [ovh_cloud_project_kube.cluster](https://registry.terraform.io/providers/ovh/ovh/latest/docs/resources/cloud_project_kube) | resource |
+| [ovh_cloud_project_kube_nodepool.node_pool](https://registry.terraform.io/providers/ovh/ovh/latest/docs/resources/cloud_project_kube_nodepool) | resource |
 
 ## Inputs
 
@@ -35,8 +40,7 @@ No resources.
 | <a name="input_node_pool_min_nodes"></a> [node\_pool\_min\_nodes](#input\_node\_pool\_min\_nodes) | Minimum number of nodes allowed in the pool. Setting desired\_nodes under this value will raise an error. | `number` | `5` | no |
 | <a name="input_node_pool_name"></a> [node\_pool\_name](#input\_node\_pool\_name) | The name of the node\_pool. Warning: \_ char is not allowed! Changing this value recreates the resource. | `string` | `"streamx"` | no |
 | <a name="input_ovh_public_cloud_project_id"></a> [ovh\_public\_cloud\_project\_id](#input\_ovh\_public\_cloud\_project\_id) | The id of the public OVH cloud project | `string` | n/a | yes |
-| <a name="input_ovh_public_cloud_region"></a> [ovh\_public\_cloud\_region](#input\_ovh\_public\_cloud\_region) | Region of cloud deployment | `string` | `"GRA11"` | no |
-| <a name="input_public_static_ip_address"></a> [public\_static\_ip\_address](#input\_public\_static\_ip\_address) | Public IP address | `string` | `null` | no |
+| <a name="input_ovh_public_cloud_region"></a> [ovh\_public\_cloud\_region](#input\_ovh\_public\_cloud\_region) | Region of cloud deployment | `string` | n/a | yes |
 
 ## Outputs
 
