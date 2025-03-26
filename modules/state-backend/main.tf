@@ -11,6 +11,7 @@ resource "ovh_cloud_project_user" "s3_admin_user" {
   description  = "User with role to operate on object stores(s3 buckets)"
   role_name    = "objectstore_operator"
 }
+
 resource "ovh_cloud_project_user_s3_credential" "s3_admin_cred" {
   service_name = var.ovh_public_cloud_project_id
   user_id      = ovh_cloud_project_user.s3_admin_user.id

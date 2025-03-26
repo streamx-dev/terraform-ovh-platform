@@ -15,6 +15,11 @@
 
 locals {
   s3_endpoint = "https://s3.${var.region}.io.cloud.ovh.net"
+  default_bucket_name              = "streamxdsf"
+  default_bucket_versioning        = "Disabled"
+
+  bucket_name                      = var.force_defaults_for_null_variables && var.bucket_name == null ? local.default_bucket_name : var.bucket_name
+  bucket_versioning                = var.force_defaults_for_null_variables && var.bucket_versioning == null ? local.default_bucket_versioning : var.bucket_versioning
 }
 
 ########################################################################################

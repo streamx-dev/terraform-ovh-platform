@@ -13,6 +13,12 @@
 # limitations under the License.
 #
 
+variable "force_defaults_for_null_variables" {
+  default     = true
+  description = "Enables forcing default variable values when the variable value passed to the module is null."
+  type        = bool
+}
+
 variable "ovh_public_cloud_project_id" {
   description = "The id of the public OVH cloud project"
   type        = string
@@ -26,22 +32,6 @@ variable "ovh_public_cloud_region" {
 variable "cluster_name" {
   default     = "streamx"
   description = "The name of the kubernetes cluster."
-  type        = string
-}
-
-########################################################################################
-#     Network
-########################################################################################
-
-variable "network_id" {
-  default     = null
-  description = "Network id to attach cluster"
-  type        = string
-}
-
-variable "nodes_subnet_id" {
-  default     = null
-  description = "Nodes subnet ID"
   type        = string
 }
 
