@@ -34,4 +34,3 @@ variable "floating_ip_pool" {
   description = "Pool of IPs"
   type        = string
 }
-

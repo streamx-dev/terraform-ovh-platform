@@ -62,4 +62,3 @@ resource "local_sensitive_file" "kubeconfig" {
   filename = var.kubeconfig_path
   content  = ovh_cloud_project_kube.cluster.kubeconfig
 }
-

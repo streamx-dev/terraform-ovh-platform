@@ -48,4 +48,3 @@ output "cluster_id" {
   description = "K8s cluster id"
   value       = ovh_cloud_project_kube.cluster.id
 }
-

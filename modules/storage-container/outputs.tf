@@ -28,4 +28,3 @@ output "s3_endpoint" {
   description = "Endpoint of created s3 bucket"
   value       = local.s3_endpoint
 }
-
