@@ -14,12 +14,11 @@
 #
 
 locals {
-  s3_endpoint = "https://s3.${var.region}.io.cloud.ovh.net"
-  default_bucket_name              = "streamxdsf"
-  default_bucket_versioning        = "Disabled"
-
-  bucket_name                      = var.force_defaults_for_null_variables && var.bucket_name == null ? local.default_bucket_name : var.bucket_name
-  bucket_versioning                = var.force_defaults_for_null_variables && var.bucket_versioning == null ? local.default_bucket_versioning : var.bucket_versioning
+  s3_endpoint               = "https://s3.${var.region}.io.cloud.ovh.net"
+  default_bucket_name       = "streamxdsf"
+  default_bucket_versioning = "Disabled"
+  bucket_name               = var.force_defaults_for_null_variables && var.bucket_name == null ? local.default_bucket_name : var.bucket_name
+  bucket_versioning         = var.force_defaults_for_null_variables && var.bucket_versioning == null ? local.default_bucket_versioning : var.bucket_versioning
 }
 
 ########################################################################################
@@ -31,6 +30,7 @@ resource "ovh_cloud_project_user" "s3_admin_user" {
   description  = "User with role to operate on object stores(s3 buckets)"
   role_name    = "objectstore_operator"
 }
+
 resource "ovh_cloud_project_user_s3_credential" "s3_admin_cred" {
   service_name = var.ovh_public_cloud_project_id
   user_id      = ovh_cloud_project_user.s3_admin_user.id
