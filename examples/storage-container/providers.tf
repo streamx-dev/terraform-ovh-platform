@@ -15,7 +15,7 @@
 
 
 provider "ovh" {
-  endpoint           = "ovh-eu"
+  endpoint = "ovh-eu"
   #   TODO add your provider credential
 }
 
@@ -24,11 +24,9 @@ provider "aws" {
   access_key = module.storage-container.access_key
   secret_key = module.storage-container.secret_key
 
-  # OVH implementation has no STS service
   skip_credentials_validation = true
   skip_requesting_account_id  = true
-  # some ovh regions are unknown to AWS hence skipping is needed.
-  skip_region_validation = true
+  skip_region_validation      = true
   endpoints {
     s3 = module.storage-container.s3_endpoint
   }

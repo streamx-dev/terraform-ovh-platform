@@ -14,7 +14,7 @@
 #
 
 provider "ovh" {
-  endpoint           = "ovh-eu"
+  endpoint = "ovh-eu"
   #   TODO add your provider credential
 }
 
