@@ -17,3 +17,23 @@ output "floatingip" {
   description = "Allocated floating IP for future usage"
   value       = openstack_networking_floatingip_v2.floatingip.address
 }
+
+output "network_operator_username" {
+  description = "Username of created network operator user"
+  value       = ovh_cloud_project_user.network_operator_user.username
+}
+
+output "network_operator_password" {
+  description = "Password of created network operator user"
+  value       = ovh_cloud_project_user.network_operator_user.password
+}
+
+output "network_operator_tenant_id" {
+  description = "Tenant id of created network operator user"
+  value       = ovh_cloud_project_user.network_operator_user.openstack_rc.OS_TENANT_ID
+}
+
+output "network_operator_tenant_name" {
+  description = "Tenant name of created network operator user"
+  value       = ovh_cloud_project_user.network_operator_user.openstack_rc.OS_TENANT_NAME
+}

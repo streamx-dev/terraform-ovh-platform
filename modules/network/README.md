@@ -39,4 +39,8 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_floatingip"></a> [floatingip](#output\_floatingip) | Allocated floating IP for future usage |
+| <a name="output_network_operator_password"></a> [network\_operator\_password](#output\_network\_operator\_password) | Password of created network operator user |
+| <a name="output_network_operator_tenant_id"></a> [network\_operator\_tenant\_id](#output\_network\_operator\_tenant\_id) | Tenant id of created network operator user |
+| <a name="output_network_operator_tenant_name"></a> [network\_operator\_tenant\_name](#output\_network\_operator\_tenant\_name) | Tenant name of created network operator user |
+| <a name="output_network_operator_username"></a> [network\_operator\_username](#output\_network\_operator\_username) | Username of created network operator user |
 <!-- END_TF_DOCS -->
