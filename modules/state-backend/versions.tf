@@ -1,4 +1,3 @@
-
 # Copyright 2025 Dynamic Solutions Sp. z o.o. sp.k.
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,11 +13,16 @@
 # limitations under the License.
 #
 
-provider "openstack" {
-  auth_url    = "https://auth.cloud.ovh.net"
-  domain_name = "default"
-  user_name   = ovh_cloud_project_user.network_operator_user.username
-  password    = ovh_cloud_project_user.network_operator_user.password
-  tenant_id   = ovh_cloud_project_user.network_operator_user.openstack_rc.OS_TENANT_ID
-  tenant_name = ovh_cloud_project_user.network_operator_user.openstack_rc.OS_TENANT_NAME
+terraform {
+  required_version = ">= 1.0.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.89.0"
+    }
+    ovh = {
+      source  = "ovh/ovh"
+      version = "~> 2.0.0"
+    }
+  }
 }
