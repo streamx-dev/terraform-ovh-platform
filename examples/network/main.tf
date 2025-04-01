@@ -14,7 +14,9 @@
 #
 
 module "network" {
-  source                      = "./../../modules/network"
+  source  = "streamx-dev/platform/ovh//modules/network"
+  version = "0.0.1"
+
   ovh_public_cloud_project_id = var.ovh_public_cloud_project_id
   ovh_public_cloud_region     = var.ovh_public_cloud_region
 }

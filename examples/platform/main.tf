@@ -13,7 +13,11 @@
 # limitations under the License.
 #
 
-provider "ovh" {
-  endpoint = "ovh-eu"
-  #   TODO add your provider credential
+module "cluster" {
+  source  = "streamx-dev/platform/ovh"
+  version = "0.0.1"
+
+  kubeconfig_path             = "${path.module}/.env/kubeconfig"
+  ovh_public_cloud_project_id = var.ovh_public_cloud_project_id
+  ovh_public_cloud_region     = var.ovh_public_cloud_region
 }

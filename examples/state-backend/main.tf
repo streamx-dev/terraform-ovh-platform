@@ -14,7 +14,9 @@
 #
 
 module "tf_state_backend" {
-  source                      = "./../../modules/state-backend"
+  source  = "streamx-dev/platform/ovh//modules/state-backend"
+  version = "0.0.1"
+
   ovh_public_cloud_project_id = var.ovh_public_cloud_project_id
   region                      = var.region
   bucket_name                 = "streamx-state-bucket"

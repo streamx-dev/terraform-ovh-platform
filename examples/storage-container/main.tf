@@ -15,7 +15,9 @@
 
 
 module "storage-container" {
-  source                      = "./../../modules/storage-container"
+  source  = "streamx-dev/platform/ovh//modules/storage-container"
+  version = "0.0.1"
+
   ovh_public_cloud_project_id = var.ovh_public_cloud_project_id
   region                      = "waw"
   bucket_name                 = "streamx-storage-container-bucket"

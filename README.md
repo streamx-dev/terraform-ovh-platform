@@ -1,3 +1,18 @@
+## OVH Provider Configuration
+
+To use OVH provider, specify your credentials as follows:
+```terraform
+provider "ovh" {
+  endpoint      = <OVH_ENDPOINT>
+  client_id     = <OVH_CLIENT_ID>
+  client_secret = <OVH_CLIENT_SECRET>
+}
+```
+
+Please refer to the official [OVH Provider Documentation](https://registry.terraform.io/providers/ovh/ovh/latest/docs#oauth2).
+
+For more details including obtaining your OAuth 2.0 credentials ask @kamilchociej.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

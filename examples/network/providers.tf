@@ -14,8 +14,7 @@
 #
 
 provider "ovh" {
-  endpoint = "ovh-eu"
-  #   TODO add your provider credential
+
 }
 
 provider "openstack" {
