@@ -1,3 +1,9 @@
+## OVH Provider Configuration
+
+
+Please refer to the official [OVH Provider Documentation](https://registry.terraform.io/providers/ovh/ovh/latest/docs#oauth2) 
+and set it accordingly in providers.tf file
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
