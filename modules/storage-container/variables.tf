@@ -35,6 +35,12 @@ variable "bucket_name" {
   type        = string
 }
 
+variable "bucket_force_destroy" {
+  default     = false
+  description = "force destroy even there are objects in bucket"
+  type        = bool
+}
+
 variable "bucket_versioning" {
   default     = "Disabled"
   description = "Set if the bucket should be versioned. Do not disable versioning on already created bucket. https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning#versioning_configuration"

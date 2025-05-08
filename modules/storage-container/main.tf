@@ -14,11 +14,13 @@
 #
 
 locals {
-  s3_endpoint               = "https://s3.${var.region}.io.cloud.ovh.net"
-  default_bucket_name       = "streamxdsf"
-  default_bucket_versioning = "Disabled"
-  bucket_name               = var.force_defaults_for_null_variables && var.bucket_name == null ? local.default_bucket_name : var.bucket_name
-  bucket_versioning         = var.force_defaults_for_null_variables && var.bucket_versioning == null ? local.default_bucket_versioning : var.bucket_versioning
+  s3_endpoint                  = "https://s3.${var.region}.io.cloud.ovh.net"
+  default_bucket_name          = "streamxdsf"
+  default_bucket_versioning    = "Disabled"
+  default_bucket_force_destroy = false
+  bucket_name                  = var.force_defaults_for_null_variables && var.bucket_name == null ? local.default_bucket_name : var.bucket_name
+  bucket_versioning            = var.force_defaults_for_null_variables && var.bucket_versioning == null ? local.default_bucket_versioning : var.bucket_versioning
+  bucket_force_destroy         = var.force_defaults_for_null_variables && var.bucket_force_destroy == null ? local.default_bucket_force_destroy : var.bucket_force_destroy
 }
 
 ########################################################################################
@@ -41,8 +43,8 @@ resource "ovh_cloud_project_user_s3_credential" "s3_admin_cred" {
 ########################################################################################
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = var.bucket_name
-
+  bucket        = var.bucket_name
+  force_destroy = local.bucket_force_destroy
 }
 
 resource "aws_s3_bucket_versioning" "versioning" {
